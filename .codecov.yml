@@ -1,0 +1,16 @@
+comment: off
+coverage:
+  status:
+    patch:
+      default: false
+      tests:
+        target: 100%
+        paths: "tests/"
+      core:
+        paths: "cleverwrap/"
+    project:
+      tests:
+        target: 100%
+        paths: "tests/"
+      core:
+        paths: "cleverwrap/"
