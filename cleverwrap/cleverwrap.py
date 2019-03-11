@@ -15,11 +15,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 import requests
 
+
 class CleverWrap:
     """ A simple wrapper class for the www.cleverbot.com api. """
 
     url = "https://www.cleverbot.com/getreply"
-    
+
     def __init__(self, api_key, name="CleverBot"):
         """ Initialize the class with an api key and optional name 
         :type name: string
@@ -61,7 +62,6 @@ class CleverWrap:
         self._process_reply(reply)
         return self.output
 
-
     def _send(self, params):
         """
         Make the request to www.cleverbot.com
@@ -76,14 +76,13 @@ class CleverWrap:
             print(e)
         return r.json(strict=False)  # Ignore possible control codes in returned data
 
-
     def _process_reply(self, reply):
         """ take the cleverbot.com response and populate properties. """
         self.cs = reply.get("cs", None)
         self.count = int(reply.get("interaction_count", None))
         self.output = reply.get("output", None)
         self.convo_id = reply.get("conversation_id", None)
-        self.history = {key:value for key, value in reply.items() if key.startswith("interaction")}
+        self.history = {key: value for key, value in reply.items() if key.startswith("interaction")}
         self.time_taken = int(reply.get("time_taken", None))
         self.time_elapsed = int(reply.get("time_elapsed", None))
 
