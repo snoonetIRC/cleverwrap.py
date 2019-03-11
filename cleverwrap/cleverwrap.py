@@ -12,7 +12,6 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
-
 import requests
 
 
@@ -68,13 +67,9 @@ class CleverWrap:
         :type params: dict
         Returns: dict
         """
-        # Get a response
-        try:
-            r = requests.get(self.url, params=params)
-        # catch errors, print then exit.
-        except requests.exceptions.RequestException as e:
-            print(e)
-        return r.json(strict=False)  # Ignore possible control codes in returned data
+        with requests.get(self.url, params=params) as response:
+            # Ignore possible control codes in returned data
+            return response.json(strict=False)
 
     def _process_reply(self, reply):
         """ take the cleverbot.com response and populate properties. """
