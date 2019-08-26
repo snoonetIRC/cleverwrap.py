@@ -1,3 +1,6 @@
+__all__ = ('CleverWrapError', 'UnknownAPIError')
+
+
 class CleverWrapError(Exception):
     pass
 

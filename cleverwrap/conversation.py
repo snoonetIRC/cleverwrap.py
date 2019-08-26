@@ -3,6 +3,8 @@ import requests
 from cleverwrap.errors import UnknownAPIError
 from cleverwrap.response import Response
 
+__all__ = ('Conversation',)
+
 
 class Conversation:
     def __init__(self, api):

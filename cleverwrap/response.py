@@ -1,3 +1,6 @@
+__all__ = ('Response',)
+
+
 class Response:
     def __init__(self, reply):
         self.cs = reply.get("cs", None)

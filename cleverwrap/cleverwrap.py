@@ -16,6 +16,8 @@ import requests
 
 from cleverwrap.conversation import Conversation
 
+__all__ = ('CleverWrap',)
+
 
 class CleverWrap:
     """ A simple wrapper class for the www.cleverbot.com api. """
