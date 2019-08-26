@@ -47,8 +47,7 @@ setup(
     description='A wrapper for the official cleverbot.com API',
     author='Andrew Edwards',
     author_email='andrewthomasedwards@gmail.com',
-    url='https://github.com/edwardslabs/cleverwrap.py',
-    download_url='https://github.com/edwardslabs/cleverwrap.py/tarball/0.2.3.2',
+    url='https://github.com/snoonetIRC/cleverwrap.py',
     keywords=['cleverbot', 'wrapper', 'clever'],
     classifiers=[
         'Programming Language :: Python :: 3 :: Only',
