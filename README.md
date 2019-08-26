@@ -1,6 +1,6 @@
 # CleverWrap.py
-[![Build Status](https://travis-ci.com/snoonetIRC/cleverwrap.py.svg?branch=master)](https://travis-ci.com/snoonetIRC/cleverwrap2)
-[![codecov](https://codecov.io/gh/snoonetIRC/cleverwrap.py/branch/master/graph/badge.svg)](https://codecov.io/gh/snoonetIRC/cleverwrap2)
+[![Build Status](https://travis-ci.com/snoonetIRC/cleverwrap.py.svg?branch=master)](https://travis-ci.com/snoonetIRC/cleverwrap.py)
+[![codecov](https://codecov.io/gh/snoonetIRC/cleverwrap.py/branch/master/graph/badge.svg)](https://codecov.io/gh/snoonetIRC/cleverwrap.py)
 
 A simple python wrapper class to interact with the official [CleverBot API](http://www.cleverbot.com/api).
 
