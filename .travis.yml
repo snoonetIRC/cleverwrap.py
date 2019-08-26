@@ -2,27 +2,30 @@ language: python
 dist: xenial
 sudo: true
 python:
-  - '3.5'
-  - '3.6'
-  - '3.7'
-  - 'pypy3.5'
-
+- '3.5'
+- '3.6'
+- '3.7'
+- pypy3.5
 branches:
   only:
   - master
-  # Allow tagged releases in the format v1.0
-  - /^v\d+\.\d+.*$/
-
+  - "/^v\\d+\\.\\d+.*$/"
 cache: pip
-
 install:
-  - "pip install -r requirements.txt"
-
+- pip install -r requirements.txt
 script:
-  - pytest
-
+- pytest
 after_success:
-  - codecov
-
+- codecov
+deploy:
+  provider: pypi
+  user: linuxdaemon
+  password:
+    secure: vu/aYW7AHpCNcilptnstLfeNL+No8WBcKrqg4jssPK3FRRPOpgZESm1G/n3cH2ryV4aUwL1WWsWzyKHz2wNzfFuZ6YQhDdEg577XhZhhJrGOrA+tQxK8p2ha2rRXyjAtjjS76f7+bOumeu6Z643ij+eQMx1F+5dLuofkRu/HSj+55ciU8vfbhsbF3uBo/HqJaRbzZtTasfD3msjsBC8M8Zw0pJe+L0ApikZtdZeKqrHPz5j0siJazosmcR6LJaPycnB2Re95MifzWevgLPFjlbh6tK6n+2WY7WfyIQuBOQFHaskBFPob0YcmW5J8xY7m5Cjxcctdlek0T5aXh1HzH3Hlr0sBPEyu1rA4k19rlzBG+O/i8CWHd7BPSg7ng2xTXn6Y97kkSI0WV5RAxz0gKicHeamB7CuVSXhCMtR+834SaxxVHX0Zp0tox420mjql+BFvpks2qb63lh1lM376iRkOfUQAdLCeH4eUnNHq4r9Paj2/0GsZrrbgPShnUzyiInaFqWINyg2z5JmHlWi0AS1CU4M3NWc0XHSXzfnKNboQNHvuqzsXap+IWHfrrGZjn1v1lK+jARuO522TmKbN5Gfvzz+MI07+WP3kVYwg1LDiPYGQ0IOmerCItL5mqZsm2CAOUeaGaoAMztmAKMYMJuJA4NQSGzbnxCSMt7ZVj24=
+  distributions: sdist bdist_wheel
+  on:
+    tags: true
+    repo: snoonetIRC/cleverwrap.py
+    python: '3.6'
 env:
-  - PYTHONPATH=.
+- PYTHONPATH=.
