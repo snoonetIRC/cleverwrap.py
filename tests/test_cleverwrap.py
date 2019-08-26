@@ -25,8 +25,8 @@ def test_say(mock_requests):
 
     assert cw.say("Hello") == "Hello."
 
-    assert cw.convo_id
+    assert cw.default_conversation.convo_id
 
     cw.reset()
 
-    assert not cw.convo_id
+    assert not cw.default_conversation.convo_id
