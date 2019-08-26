@@ -49,10 +49,11 @@ class CleverWrap:
 
         return self.default_conversation.say(text)
 
-    def _send(self, params):
+    def _send(self, params, raise_for_status=False):
         """
         Make the request to www.cleverbot.com
         :type params: dict
+        :type raise_for_status: bool
         Returns: dict
         """
         params.update(
@@ -61,15 +62,11 @@ class CleverWrap:
         )
 
         # Get a response
-        try:
-            r = requests.get(self.url, params=params)
-            r.raise_for_status()
-        except requests.exceptions.RequestException as e:
-            # catch errors, print then exit.
-            print(e)
-            raise  # Propagate the exception up the call stack so the calling code can catch it
+        with requests.get(self.url, params=params) as response:
+            if raise_for_status:
+                response.raise_for_status()
 
-        return r.json(strict=False)  # Ignore possible control codes in returned data
+            return response.json(strict=False)
 
     def reset(self):
         """
