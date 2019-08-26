@@ -1,4 +1,7 @@
+import pytest
+
 from cleverwrap import CleverWrap
+from cleverwrap.errors import UnknownAPIError
 
 
 def test_init():
@@ -30,3 +33,10 @@ def test_say(mock_requests):
     cw.reset()
 
     assert not cw.default_conversation.convo_id
+
+
+def test_api_error(mock_requests):
+    cw = CleverWrap("API_KEY")
+
+    with pytest.raises(UnknownAPIError):
+        cw.say("Hello")
