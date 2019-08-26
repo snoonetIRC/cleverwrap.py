@@ -1,3 +1,6 @@
+import requests
+
+from cleverwrap.errors import UnknownAPIError
 from cleverwrap.response import Response
 
 
@@ -21,7 +24,12 @@ class Conversation:
             "conversation_id": self.convo_id,
         }
 
-        reply = Response(self.api._send(params))
+        try:
+            data = self.api._send(params, raise_for_status=True)
+        except requests.RequestException as e:
+            raise UnknownAPIError() from e
+
+        reply = Response(data)
         self.cs = reply.cs
         self.convo_id = reply.convo_id
         return reply.output
