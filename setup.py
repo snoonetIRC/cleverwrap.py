@@ -2,6 +2,8 @@ import re
 
 from setuptools import setup
 
+import cleverwrap
+
 install_requires = [
     'requests',
 ]
@@ -41,7 +43,7 @@ setup(
     packages=['cleverwrap'],
     license='MIT',
     install_requires=get_constraints(install_requires),
-    version='0.2.3.2',
+    version='.'.join(cleverwrap.__version__),
     description='A wrapper for the official cleverbot.com API',
     author='Andrew Edwards',
     author_email='andrewthomasedwards@gmail.com',
