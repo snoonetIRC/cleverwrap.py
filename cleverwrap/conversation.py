@@ -10,8 +10,9 @@ class Conversation:
     def say(self, text):
         """
         Say something to www.cleverbot.com
+
         :type text: string
-        Returns: string
+        :rtype: string
         """
 
         params = {

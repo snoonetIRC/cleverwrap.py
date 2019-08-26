@@ -22,8 +22,10 @@ class CleverWrap:
 
     def __init__(self, api_key, name="CleverBot", url="https://www.cleverbot.com/getreply"):
         """ Initialize the class with an api key and optional name
+
         :type api_key: str
         :type name: str
+        :type url: str
         """
         self.key = api_key
         self.name = name
@@ -43,8 +45,9 @@ class CleverWrap:
     def say(self, text):
         """ 
         Say something to www.cleverbot.com
+
         :type text: string
-        Returns: string
+        :rtype: string
         """
 
         return self.default_conversation.say(text)
@@ -52,9 +55,10 @@ class CleverWrap:
     def _send(self, params, raise_for_status=False):
         """
         Make the request to www.cleverbot.com
+
         :type params: dict
         :type raise_for_status: bool
-        Returns: dict
+        :rtype: dict
         """
         params.update(
             key=self.key,
