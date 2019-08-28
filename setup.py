@@ -24,6 +24,9 @@ def parse_contstraints():
 
         match = req_re.match(line)
 
+        if not match:
+            continue
+
         name, ver = match.groups()
         d[name] = ver
 
