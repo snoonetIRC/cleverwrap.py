@@ -8,7 +8,7 @@ install_requires = [
     'requests',
 ]
 
-req_re = re.compile(r'([^=\s]+)==([^\s]+)')
+req_re = re.compile(r'([^=\s]+)(?:==|>=|<=)([^\s]+)')
 reqs_file = open('requirements.txt').read().splitlines()
 
 
