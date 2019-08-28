@@ -51,7 +51,7 @@ setup(
     packages=['cleverwrap'],
     license='MIT',
     install_requires=get_constraints(install_requires),
-    version='.'.join(cleverwrap.__version__),
+    version='.'.join(str(n) for n in cleverwrap.__version__),
     description='A wrapper for the official cleverbot.com API',
     long_description=read_file('README.md'),
     long_description_content_type='text/markdown',
