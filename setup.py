@@ -38,6 +38,11 @@ def get_constraints(reqs):
         yield '{}=={}'.format(name, constraints[name])
 
 
+def read_file(name):
+    with open(name) as f:
+        return f.read()
+
+
 setup(
     name='cleverwrap',
     packages=['cleverwrap'],
@@ -45,6 +50,8 @@ setup(
     install_requires=get_constraints(install_requires),
     version='.'.join(cleverwrap.__version__),
     description='A wrapper for the official cleverbot.com API',
+    long_description=read_file('README.md'),
+    long_description_content_type='text/markdown',
     author='Andrew Edwards',
     author_email='andrewthomasedwards@gmail.com',
     url='https://github.com/snoonetIRC/cleverwrap.py',
